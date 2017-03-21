@@ -54,26 +54,27 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/algoliasearch/3.10.2/algoliasearch.min.js"></script>
 
         <script type="text/javascript">
+            function getParameterByName(name, url) {
+              if (!url) {
+                url = window.location.href;
+              }
+              name = name.replace(/[\[\]]/g, "\\$&");
+              var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                  results = regex.exec(url);
+              if (!results) return null;
+              if (!results[2]) return '';
+              return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
             var playground = angular.module("playground", []);
 
             playground.controller("PlaygroundController", function ($scope) {
                 $scope.config = {
                     env: 'prod',
-                    dev: {
-                        appId: '',
-                        apiKey: '',
-                        indexName: '',
-                        inputSelector: '#q',
-                        autocompleteOptions: {
-                            debug: "true"
-                        },
-                        facetFilters: '',
-                        optionalFacetFilters: ''
-                    },
                     prod: {
                         appId: 'BH4D9OD16A',
-                        apiKey: '',
-                        indexName: '',
+                        apiKey: getParameterByName('apiKey') || '',
+                        indexName: getParameterByName('indexName') || '',
                         inputSelector: '#q',
                         autocompleteOptions: {
                             debug: "true"
@@ -142,7 +143,6 @@
 
                 var values = [
                     'config.env',
-                    'config.dev.appId', 'config.dev.apiKey', 'config.dev.indexName', 'config.dev.facetFilters', 'config.dev.optionalFacetFilters',
                     'config.prod.appId', 'config.prod.apiKey', 'config.prod.indexName', 'config.prod.facetFilters', 'config.prod.optionalFacetFilters'
                 ];
 
