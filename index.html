@@ -13,19 +13,13 @@
                 <div class="col-md-9 left-panel">
                     <div class="input-group">
                     <div id=""></div>
-                        <input type="search" class="form-control" id="q">
+                        <input autocomplete="off" type="search" class="form-control" id="q">
                         <span class="input-group-addon">
                             <i class="fa fa-search"></i>
                         </span>
                     </div>
                 </div>
                 <div class="col-md-3 right-panel">
-                    <div class="form-group">
-                        <input type="radio" ng-model="config.env" value="prod" name="prod"/>
-                        <span>Prod</span>
-                        <input type="radio" ng-model="config.env" value="dev" name="prod"/>
-                        <span>Dev</span>
-                    </div>
                     <div class="form-group">
                         <label for="appId">App Id</label>
                         <input ng-model="config[config.env].appId" id="appId" class="form-control" />
@@ -64,7 +58,7 @@
 
             playground.controller("PlaygroundController", function ($scope) {
                 $scope.config = {
-                    env: 'dev',
+                    env: 'prod',
                     dev: {
                         appId: '',
                         apiKey: '',
@@ -77,7 +71,7 @@
                         optionalFacetFilters: ''
                     },
                     prod: {
-                        appId: '',
+                        appId: 'BH4D9OD16A',
                         apiKey: '',
                         indexName: '',
                         inputSelector: '#q',
