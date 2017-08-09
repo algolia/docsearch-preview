@@ -18,8 +18,6 @@ Fill in the "Admin API key" and "Index Name" fields with the values from your em
 
 You should now be able to type queries into the search box and see results.
 
-![Example with React](https://d3uepj124s5rcx.cloudfront.net/items/2B0D271G2t45280r0c24/Screenshot%202017-03-20%2019.06.51.png)
-
 ## Share a link
 
 You can add query parameters for the apiKey and indexName to the URL so that when you share a link these values are already populated and the search box is ready to go. Here's the format:
