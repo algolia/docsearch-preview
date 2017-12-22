@@ -25,7 +25,7 @@
                         <input ng-model="config[config.env].appId" id="appId" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label for="apiKey"><b>Admin</b> Api Key</label>
+                        <label for="apiKey"><b>DocSearch</b> Api Key</label>
                         <input type="password" ng-model="config[config.env].apiKey" id="apiKey" class="form-control" />
                     </div>
                     <div class="form-group">
@@ -35,14 +35,6 @@
                     <div class="form-group">
                         <label for="loader">Load config</label>
                         <select ng-model="config[config.env].indexName" ng-options="value for value in indices" ng-change="selectedIndexChanged()" class="form-control" id="loader"></select>
-                    </div>
-                    <div class="form-group">
-                        <label for="facetFilters">Facet Filters</label>
-                        <input ng-model="config[config.env].facetFilters" id="facetFilters" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label for="optionalFacetFilters">Optional Facet Filters</label>
-                        <input ng-model="config[config.env].optionalFacetFilters" id="optionalFacetFilters" class="form-control" />
                     </div>
                 </div>
             </div>
@@ -78,9 +70,7 @@
                         inputSelector: '#q',
                         autocompleteOptions: {
                             debug: "true"
-                        },
-                        facetFilters: '',
-                        optionalFacetFilters: ''
+                        }
                     }
                 };
 
@@ -103,9 +93,7 @@
                     }
 
                     $scope.config[$scope.config.env].algoliaOptions = {
-                        'hitsPerPage': 5,
-                        'facetFilters': $scope.config[$scope.config.env].facetFilters,
-                        'optionalFacetFilters': $scope.config[$scope.config.env].optionalFacetFilters
+                        'hitsPerPage': 5
                     };
 
                     if ($scope.config[$scope.config.env].appId && $scope.config[$scope.config.env].apiKey && $scope.config[$scope.config.env].indexName) {
@@ -143,7 +131,7 @@
 
                 var values = [
                     'config.env',
-                    'config.prod.appId', 'config.prod.apiKey', 'config.prod.indexName', 'config.prod.facetFilters', 'config.prod.optionalFacetFilters'
+                    'config.prod.appId', 'config.prod.apiKey', 'config.prod.indexName'
                 ];
 
                 angular.forEach(values, function(value, key) {
