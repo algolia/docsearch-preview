@@ -60,7 +60,7 @@
                 $scope.config = {
                     env: 'prod',
                     prod: {
-                        appId: 'BH4D9OD16A',
+                        appId: getParameterByName('appId') || 'BH4D9OD16A',
                         apiKey: getParameterByName('apiKey') || '',
                         indexName: getParameterByName('indexName') || '',
                         inputSelector: '#q',
