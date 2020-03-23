@@ -2,8 +2,9 @@
 
 
 You can try out the discovering experience of your DocSearch index with your own `api_key` and `index_name` by fetching the following URL:
-
+```
 https://docsearch.algolia.com/playground/?indexName=<indexName>&apiKey=<apiKey>&appId=<appId>
+```
 
 `appId` is optionnal.
 
